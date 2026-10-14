@@ -64,7 +64,7 @@ exports.updateTenant = async (req, res)=>{
         if(!tenant){
             return res.status(400).json({status: "Y", message:"No tenant found"});
         }
-        const updateTenant = await Tenant.findByIdAndDelete(id, {
+        const updateTenant = await Tenant.findByIdAndUpdate(id, {
             name,
             roomNo,
             phone,
@@ -72,7 +72,7 @@ exports.updateTenant = async (req, res)=>{
             
         });
         if (updateTenant) {
-            return res.status(201).json({status: "Y", message:"Tenant Updated Successfully"});
+            return res.status(200).json({status: "Y", message:"Tenant Updated Successfully"});
         }
     }catch (error){
         console.log(error);

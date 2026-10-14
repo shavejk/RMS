@@ -10,7 +10,7 @@ exports.createRent = async (req, res) => {
             tenantId,
             month,
             rentAmount,
-            paid,
+            paid:paid !==undefined?Boolean(paid):false,
 
         
 
@@ -64,7 +64,7 @@ exports.updateRent = async (req, res)=>{
         if(!rent){
             return res.status(400).json({status: "Y", message:"No rent found"});
         }
-        const updateRent = await Rent.findByIdAndDelete(id, {
+        const updateRent = await Rent.findByIdAndUpdate(id, {
             tenantId,
             month,
             rentAmount,
