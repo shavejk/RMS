@@ -1,8 +1,8 @@
 # Use Node base image
-FROM node:18
+FROM node:18-alpine
 
 # Create app directory
-WORKDIR /rms backend
+WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 9000
 
 # Run the backend
-CMD ["node", "server.js"]
+CMD ["node", "app.js"]
